@@ -1,8 +1,9 @@
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { Link } from "react-router";
 import styled from "styled-components";
 import Hero from "../components/Hero";
+import { Services } from "../components/Services";
+import { ContactUs } from "../components/ContactUs";
 
 const PageWrapper = styled.main`
   min-height: 100vh;
@@ -18,8 +19,8 @@ const Main = () => {
       <Header />
       <Hero />
       <PageWrapper>
-        <h1>Main</h1>
-        <Link to="/contacts">Contacts</Link>
+        <Services />
+        <ContactUs />
       </PageWrapper>
       <Footer />
     </>

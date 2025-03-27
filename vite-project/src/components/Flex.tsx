@@ -6,7 +6,11 @@ type FormFields = {
   direction?: string;
   justify?: string;
   align?: string;
+  wrap?: string;
   padding?: string;
+  minWidth?: string;
+  maxWidth?: string;
+  gap?: string;
 };
 
 const StyledFlex = styled.div<FormFields>`
@@ -15,7 +19,11 @@ const StyledFlex = styled.div<FormFields>`
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "center"};
   align-items: ${({ align }) => align || "center"};
+  flex-wrap: ${({ wrap }) => wrap || "nowrap"};
   padding: ${({ padding }) => padding || "0"};
+  min-width: ${({ minWidth }) => minWidth || "auto"};
+  max-width: ${({ maxWidth }) => maxWidth || "auto"};
+  gap: ${({ gap }) => gap || "0"};
 `;
 
 const Flex = (props: PropsWithChildren<FormFields>) => {
