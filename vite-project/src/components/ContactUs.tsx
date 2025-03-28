@@ -1,5 +1,6 @@
 import { Typography, Box } from "@mui/material";
-import { bgImg } from "../assets";
+import { useState, useEffect } from "react";
+import { bgImg, bgImgX2 } from "../assets";
 import { Link } from "react-router";
 import styled from "styled-components";
 
@@ -19,12 +20,33 @@ const NavbarLink = styled(Link)`
 `;
 
 export const ContactUs = () => {
+  const [backgroundImg, setBackgruondImg] = useState("");
+
+  useEffect(() => {
+    const updateBackgroundImage = () => {
+      const dpi = window.devicePixelRatio;
+
+      if (dpi >= 2) {
+        setBackgruondImg(`${bgImgX2}`);
+      } else {
+        setBackgruondImg(`${bgImg}`);
+      }
+    };
+
+    updateBackgroundImage();
+    window.addEventListener("resize", updateBackgroundImage);
+
+    return () => {
+      window.removeEventListener("resize", updateBackgroundImage);
+    };
+  }, []);
+
   return (
     <Box
       sx={{
         width: "100%",
         height: "fit-content",
-        backgroundImage: `url(${bgImg})`,
+        backgroundImage: `url(${backgroundImg})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",

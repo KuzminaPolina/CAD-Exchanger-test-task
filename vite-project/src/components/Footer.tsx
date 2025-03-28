@@ -13,7 +13,7 @@ export const Footer = () => {
         borderTop: "solid 1px rgb(223, 223, 223)",
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom textAlign="center">
         Our Boring Company 2025
       </Typography>
       <Typography variant="body2">All Rights Are Wrong</Typography>

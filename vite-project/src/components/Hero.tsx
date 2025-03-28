@@ -28,7 +28,7 @@ const Hero = () => {
             fontSize: { xs: "3rem", md: "3rem", lg: "5rem" },
           }}
         >
-          Our Boring Software
+          Our Boring Product
         </Typography>
         <Typography variant="body1">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
@@ -46,7 +46,7 @@ const Hero = () => {
         }}
       >
         <ReactPlayer
-          url="https://www.youtube.com/watch?v=VA975GOUFmM"
+          url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           width={matches ? "530px" : "280px"}
           height="235px"
         />

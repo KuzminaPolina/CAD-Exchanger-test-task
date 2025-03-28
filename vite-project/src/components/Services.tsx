@@ -1,4 +1,6 @@
 import { Typography, Paper, Box } from "@mui/material";
+import { Link } from "react-router";
+import styled from "styled-components";
 import {
   service1,
   service2,
@@ -7,6 +9,21 @@ import {
   service5,
   service6,
 } from "../assets";
+
+const NavbarLink = styled(Link)`
+  display: inline-block;
+  padding: 5px 40px;
+  background-color: rgb(223, 223, 223);
+  color: #00082f;
+  border-radius: 12px;
+  &:hover,
+  &:focus {
+    color: #004085;
+  }
+  &:active {
+    color: #0089b0;
+  }
+`;
 
 const servicesArr = [
   {
@@ -79,10 +96,12 @@ export const Services = () => {
           flexDirection: "row",
           flexWrap: "wrap",
           maxWidth: "1100px",
+          marginBottom: "50px",
         }}
       >
         {servicesArr.map((card) => (
           <Paper
+            key={card.id}
             elevation={3}
             sx={{
               display: "flex",
@@ -90,6 +109,7 @@ export const Services = () => {
               alignItems: "center",
               justifyContent: "center",
               minWidth: "280px",
+              width: "100%",
               maxWidth: "340px",
               padding: "20px",
               color: "rgba(255, 255, 255, 0.87)",
@@ -105,6 +125,7 @@ export const Services = () => {
           </Paper>
         ))}
       </Box>
+      <NavbarLink to="/contacts">Contact Us</NavbarLink>
     </Box>
   );
 };

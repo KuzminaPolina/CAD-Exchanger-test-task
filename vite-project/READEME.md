@@ -8,3 +8,4 @@ Development progress:
 7. Made simple hader, nav + hero section
 8. Researched libs to embed youtube video
 9. Installed npm i react-player
+10. Made 2 pages with basic style and layout.
