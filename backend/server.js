@@ -1,0 +1,37 @@
+import express from "express";
+import cors from "cors";
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static('public'))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(cors());
+
+app.get("/", (req, res)=>{
+    res.send("This is your server")
+})
+
+app.get("/contacts", (req, res)=>{
+    res.send("This is your contacts")
+})
+
+app.post('/contacts', (req, res) => {
+    const { name, email, message } = req.body;
+
+    // Simple validation
+    if (!name || !email || !message) {
+        return res.status(400).json({ message: 'Name and email are required!' });
+    }
+
+    // Simulate successful processing of form data
+    console.log(`Received form data: Name - ${name}, Email - ${email}, Message - ${message}`);
+    
+    // Send success response
+    return res.status(200).json({ message: `Thank you for your interest, ${name}! Message sent successfully!` });
+});
+
+app.listen(port,()=>{
+    console.log(`Serve at http://localhost:${port}`)
+})
