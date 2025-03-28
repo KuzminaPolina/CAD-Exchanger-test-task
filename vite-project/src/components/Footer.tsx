@@ -14,7 +14,7 @@ export const Footer = () => {
       }}
     >
       <Typography variant="h4" gutterBottom textAlign="center">
-        Our Boring Company 2025
+        The Boring Company 2025
       </Typography>
       <Typography variant="body2">All Rights Are Wrong</Typography>
     </Box>

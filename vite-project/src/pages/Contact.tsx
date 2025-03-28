@@ -7,10 +7,24 @@ import { Typography } from "@mui/material";
 
 const PageWrapper = styled.main`
   min-height: 100vh;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const NavbarLogo = styled(Link)`
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 12px;
+  &:hover,
+  &:focus {
+    color: #004085;
+  }
+  &:active {
+    color: #0089b0;
+  }
 `;
 
 const ContactPage = () => {
@@ -28,7 +42,7 @@ const ContactPage = () => {
           Contact Us
         </Typography>
         <Form />
-        <Link to="/">Back to main page</Link>
+        <NavbarLogo to="/">Back to main page</NavbarLogo>
       </PageWrapper>
       <Footer />
     </>

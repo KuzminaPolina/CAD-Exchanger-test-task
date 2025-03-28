@@ -9,3 +9,7 @@ Development progress:
 8. Researched libs to embed youtube video
 9. Installed npm i react-player
 10. Made 2 pages with basic style and layout.
+
+11. Started working on the form page.
+I contemplated using React Hook Form, but decided against it since it's a simple form and RHF might not be beneficial.
+However, I previously used RHF in my other app, feel free to check it: [Scheduling app, form component](https://github.com/KuzminaPolina/scheduling-app/blob/main/frontend/src/components/LessonForm.tsx)

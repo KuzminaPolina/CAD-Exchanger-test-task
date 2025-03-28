@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
 
 const NavbarLink = styled(Link)`
   display: inline-block;
-  padding: 5px 40px;
+  padding: 10px 30px;
   background-color: rgb(223, 223, 223);
   color: #00082f;
   border-radius: 12px;
@@ -25,7 +25,7 @@ const NavbarLink = styled(Link)`
 
 const NavbarLogo = styled(Link)`
   display: inline-block;
-  color: rgb(223, 223, 223);
+  color: rgba(255, 255, 255, 0.87);
   border-radius: 12px;
   &:hover,
   &:focus {
@@ -41,6 +41,7 @@ export const Header = () => {
     <Box
       component="header"
       sx={{
+        width: "100%",
         minHeight: "96px",
         padding: { xs: "30px 15px", md: "30px 80px" },
         borderBottom: "solid 1px rgb(223, 223, 223)",
@@ -51,11 +52,14 @@ export const Header = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: "24px",
+              fontSize: { sm: "22px", md: "24px" },
               color: "rgba(255, 255, 255, 0.87)",
             }}
           >
-            <NavbarLogo to="/">Boring Company</NavbarLogo>
+            <NavbarLogo to="/">
+              The Boring <br />
+              Company
+            </NavbarLogo>
           </Typography>
         </div>
         <NavbarLink to="/contacts">Contact Us</NavbarLink>

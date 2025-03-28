@@ -1,13 +1,34 @@
 import { Box, Stack, TextField, Button, Typography } from "@mui/material";
 import { useState } from "react";
+import styled from "styled-components";
 
-type FormFields = {
-  name: string;
-  email: string;
-  message: string;
-};
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "rgba(255, 255, 255, 0.87)",
+  },
+  "& .MuiInputLabel-outlined": {
+    color: "rgba(255, 255, 255, 0.87)",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "rgba(255, 255, 255, 0.87)",
+  },
+  "& .MuiOutlinedInput-root": {
+    color: "rgba(255, 255, 255, 0.87)",
+    "& fieldset": {
+      borderColor: "rgba(255, 255, 255, 0.87)",
+    },
+    "&:hover fieldset": {
+      borderColor: "rgba(255, 255, 255, 0.87)",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "rgba(255, 255, 255, 0.87)",
+    },
+  },
+});
 
 export const Form = () => {
+  //const nameRegex = "^[a-zA-Z.]{1,32}$";
+  //const emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
   const [isDataSent, setIsDataSent] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,6 +46,7 @@ export const Form = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const formData = {
       name: `${name}`,
       email: `${email}`,
@@ -65,105 +87,48 @@ export const Form = () => {
             width: { sm: "280px", md: "400px", lg: "600px" },
           }}
         >
-          <TextField
+          <CssTextField
             label="Name"
-            variant="outlined"
+            id="name"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
             }}
             required
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                color: "#016364",
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#016364",
-                  borderWidth: "2px",
-                },
-              },
-              "&.Mui-focused": {
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#016364",
-                  borderWidth: "3px",
-                },
-              },
-              "& .MuiInputLabel-outlined": {
-                color: "#016364",
-                fontWeight: "bold",
-                "&.Mui-focused": {
-                  color: "#016364",
-                  fontWeight: "bold",
-                },
-              },
-            }}
-          ></TextField>
-          <TextField
+          />
+          <CssTextField
             label="Email"
-            variant="outlined"
+            id="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
             required
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                color: "#016364",
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#016364",
-                  borderWidth: "2px",
-                },
-              },
-              "&.Mui-focused": {
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#016364",
-                  borderWidth: "3px",
-                },
-              },
-              "& .MuiInputLabel-outlined": {
-                color: "#016364",
-                fontWeight: "bold",
-                "&.Mui-focused": {
-                  color: "#016364",
-                  fontWeight: "bold",
-                },
-              },
-            }}
-          ></TextField>
-          <TextField
+          />
+          <CssTextField
             label="Message"
+            id="message"
             multiline={true}
             rows="20"
-            variant="outlined"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
             required
+          />
+          <Button
+            type="submit"
+            variant="contained"
             sx={{
-              "& .MuiOutlinedInput-root": {
-                color: "#016364",
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#016364",
-                  borderWidth: "2px",
-                },
+              "&.MuiButton-root": {
+                backgroundColor: "#016364",
+                color: "rgba(255, 255, 255, 0.87)",
               },
-              "&.Mui-focused": {
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#016364",
-                  borderWidth: "3px",
-                },
-              },
-              "& .MuiInputLabel-outlined": {
-                color: "#016364",
-                fontWeight: "bold",
-                "&.Mui-focused": {
-                  color: "#016364",
-                  fontWeight: "bold",
-                },
+              "&:hover": {
+                backgroundColor: "#003546",
               },
             }}
-          ></TextField>
-          <Button type="submit" variant="contained">
+          >
             Send
           </Button>
         </Stack>
