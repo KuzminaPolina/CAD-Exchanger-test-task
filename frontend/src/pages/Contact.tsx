@@ -16,7 +16,7 @@ const PageWrapper = styled.main`
 
 const NavbarLogo = styled(Link)`
   display: inline-block;
-  color: rgba(255, 255, 255, 0.87);
+  color: #dfdfdf;
   border-radius: 12px;
   &:hover,
   &:focus {
@@ -39,6 +39,7 @@ const ContactPage = () => {
           variant="h1"
           sx={{
             fontSize: { xs: "3rem", md: "3rem", lg: "5rem" },
+            color: "#DFDFDF",
           }}
           gutterBottom
         >

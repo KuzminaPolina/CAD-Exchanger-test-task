@@ -28,7 +28,7 @@ const NavbarLink = styled(Link)`
 
 const NavbarLogo = styled(Link)`
   display: inline-block;
-  color: rgba(255, 255, 255, 0.87);
+  color: #dfdfdf;
   border-radius: 12px;
   &:hover,
   &:focus {

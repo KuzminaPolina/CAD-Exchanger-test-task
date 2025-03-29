@@ -87,7 +87,14 @@ export const Services = () => {
         backgroundColor: "#242424",
       }}
     >
-      <Typography variant="h2" gutterBottom>
+      <Typography
+        variant="h2"
+        gutterBottom
+        sx={{
+          textAlign: "center",
+          color: "#DFDFDF",
+        }}
+      >
         Our Services
       </Typography>
       <Box

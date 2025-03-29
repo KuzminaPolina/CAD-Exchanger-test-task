@@ -17,10 +17,26 @@ export const Footer = () => {
         backgroundColor: "#242424",
       }}
     >
-      <Typography variant="h4" gutterBottom textAlign="center">
+      <Typography
+        variant="h4"
+        gutterBottom
+        textAlign="center"
+        sx={{
+          textAlign: "center",
+          color: "#DFDFDF",
+        }}
+      >
         The Fun Company 2025
       </Typography>
-      <Typography variant="body2">All Rights Are Wrong</Typography>
+      <Typography
+        variant="body2"
+        sx={{
+          textAlign: "center",
+          color: "#DFDFDF",
+        }}
+      >
+        All Rights Are Wrong
+      </Typography>
     </Box>
   );
 };

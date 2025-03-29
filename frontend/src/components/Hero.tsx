@@ -1,4 +1,4 @@
-import { Typography, Box, useMediaQuery } from "@mui/material";
+import { Typography, Box, useMediaQuery, colors } from "@mui/material";
 import ReactPlayer from "react-player/youtube";
 
 const Hero = () => {
@@ -27,11 +27,12 @@ const Hero = () => {
           gutterBottom
           sx={{
             fontSize: { xs: "3rem", md: "3rem", lg: "5rem" },
+            color: "#DFDFDF",
           }}
         >
           Our Fun Product
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" sx={{ color: "#DFDFDF" }}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
           error sequi quisquam, quaerat quos delectus fugit nisi mollitia quo
           sed omnis ratione!

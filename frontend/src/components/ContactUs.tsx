@@ -73,6 +73,7 @@ export const ContactUs = () => {
           gutterBottom
           sx={{
             textAlign: "center",
+            color: "#DFDFDF",
           }}
         >
           Do you have any questions?
