@@ -20,15 +20,9 @@ app.get("/contacts", (req, res)=>{
 app.post('/contacts', (req, res) => {
     const { name, email, message } = req.body;
 
-    // Simple validation
     if (!name || !email || !message) {
         return res.status(400).json({ message: 'Name and email are required!' });
-    }
-
-    // Simulate successful processing of form data
-    console.log(`Received form data: Name - ${name}, Email - ${email}, Message - ${message}`);
-    
-    // Send success response
+    }    
     return res.status(200).json({ message: `Thank you for your interest, ${name}! Message sent successfully!` });
 });
 
