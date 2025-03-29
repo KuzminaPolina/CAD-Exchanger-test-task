@@ -27,5 +27,5 @@ app.post('/contacts', (req, res) => {
 });
 
 app.listen(port,()=>{
-    console.log(`Serve at http://localhost:${port}`)
+    console.log(`Serving the app`)
 })
