@@ -47,12 +47,21 @@ const Hero = () => {
           background: "transparent",
         }}
       >
-        <ReactPlayer
-          url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          width={matches ? "530px" : "280px"}
-          height="235px"
-          alt="Congratulations! You just officially got rickrolled by the test task!"
-        />
+        <Box
+          sx={{
+            width: { xs: "280px", md: "530px" },
+            height: "235px",
+            background:
+              "linear-gradient(45deg, rgba(0,3,19,1) 0%, rgba(1,24,48,1) 32%, rgba(0,53,70,1) 64%, rgba(1,99,100,1) 100%)",
+          }}
+        >
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            width={matches ? "530px" : "280px"}
+            height="235px"
+            alt="Congratulations! You just officially got rickrolled by the test task!"
+          />
+        </Box>
       </Box>
     </Box>
   );
