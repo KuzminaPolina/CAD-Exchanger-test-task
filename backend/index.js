@@ -29,5 +29,3 @@ app.post('/contacts', (req, res) => {
 app.listen(port,()=>{
     console.log(`Serving the app on port 3000`)
 })
-
-module.exports = app;
