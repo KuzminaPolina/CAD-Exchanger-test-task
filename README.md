@@ -6,10 +6,10 @@ React+Vite, Typescript, MUI, styled-components
 
 Other libraries: react-player for youtube video, react-router for navigation.
 
-### Backend Setup
+## Backend Setup
 Node.js, Express
 
-#### Development
+## Development
 I should probably mention that this is my first project using MUI and styled-components, as well as creating backend. 
 As a result, the styling is basic. I imagined this as a website for some software.
 Ohter than that, I'm familar with React and Vite, and website hosting.
