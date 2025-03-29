@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors());
 
 app.get("/", (req, res)=>{
-    res.send("This is your server")
+    res.send("Express on Versel")
 })
 
 app.get("/contacts", (req, res)=>{
@@ -27,5 +27,7 @@ app.post('/contacts', (req, res) => {
 });
 
 app.listen(port,()=>{
-    console.log(`Serving the app`)
+    console.log(`Serving the app on port 3000`)
 })
+
+module.exports = app;
