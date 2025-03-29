@@ -15,3 +15,5 @@ As a result, the styling is basic. I imagined this as a website for some softwar
 Ohter than that, I'm familar with React and Vite, and website hosting.
 I contemplated using the React Hook Form for form validation, but decided against adding another package.
 I used React Hook Form for validation in my other project, feel free to check it out: [Scheduling app, form component](https://github.com/KuzminaPolina/scheduling-app/blob/main/frontend/src/components/LessonForm.tsx).
+I'll be happy to discuss this project on the interview.
+Thank you for giving me a chance!
