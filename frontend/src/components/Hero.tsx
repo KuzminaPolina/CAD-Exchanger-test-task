@@ -1,4 +1,4 @@
-import { Typography, Box, useMediaQuery, colors } from "@mui/material";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 import ReactPlayer from "react-player/youtube";
 
 const Hero = () => {
