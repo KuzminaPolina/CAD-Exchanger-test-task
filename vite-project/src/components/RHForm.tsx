@@ -21,21 +21,58 @@ const CssTextField = styled(TextField)({
       borderColor: "rgba(255, 255, 255, 0.87)",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "rgba(255, 255, 255, 0.87)",
+      borderColor: "#0089b0",
     },
   },
 });
 
-export const Form = () => {
+export const RHForm = () => {
   const [isDataSent, setIsDataSent] = useState(false);
+  const [respose, setResponse] = useState("You message was sent");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [respose, setResponse] = useState("Jane");
+  const [isNameValid, setIsNameValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isMessageValid, setIsMessageValid] = useState(true);
+  const [disableSend, setDisableSend] = useState(false);
+  const nameRegex = /^[a-zA-Zaа-яА-Я0-9 _.]{2,32}$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
+
+  const checkNameValidity = (value: string) => {
+    const nameCheck = nameRegex.test(value);
+    if (nameCheck) {
+      setIsNameValid(true);
+      setDisableSend(false);
+    } else {
+      setIsNameValid(false);
+      setDisableSend(true);
+    }
+  };
+
+  const checkEmailValidity = (value: string) => {
+    const emailCheck = emailRegex.test(value);
+    if (emailCheck) {
+      setIsEmailValid(true);
+      setDisableSend(false);
+    } else {
+      setIsEmailValid(false);
+      setDisableSend(true);
+    }
+  };
+
+  const checkMessageValidity = (value: string) => {
+    if (value.length < 2 || value.length >= 500) {
+      setIsMessageValid(false);
+      setDisableSend(true);
+    } else {
+      setIsMessageValid(true);
+      setDisableSend(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const formData = {
       name: `${name}`,
       email: `${email}`,
@@ -55,7 +92,7 @@ export const Form = () => {
       setResponse(serverResponce.message);
       setIsDataSent(true);
     } else {
-      console.error(response);
+      setResponse(response.statusText);
     }
   };
 
@@ -79,42 +116,67 @@ export const Form = () => {
           <CssTextField
             label="Name"
             id="name"
+            type="text"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
+              checkNameValidity(e.target.value);
             }}
+            error={!isNameValid}
+            helperText={
+              isNameValid ? null : "Name must be minimum 2 characters"
+            }
             required
           />
           <CssTextField
             label="Email"
             id="email"
+            type="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
+              checkEmailValidity(e.target.value);
             }}
+            error={!isEmailValid}
+            helperText={isEmailValid ? null : "Please enter valid e-mail"}
             required
           />
           <CssTextField
             label="Message"
             id="message"
-            multiline={true}
-            rows="20"
+            type="text"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
+              checkMessageValidity(e.target.value);
             }}
+            error={!isMessageValid}
+            helperText={
+              isMessageValid
+                ? null
+                : "Please write some more! We want to hear from you  :)"
+            }
+            multiline={true}
+            rows="20"
             required
           />
           <Button
             type="submit"
             variant="contained"
+            disabled={disableSend}
             sx={{
               "&.MuiButton-root": {
                 backgroundColor: "#016364",
                 color: "rgba(255, 255, 255, 0.87)",
               },
+              "&.Mui-disabled": {
+                backgroundColor: "#5e5e5e",
+              },
               "&:hover": {
                 backgroundColor: "#003546",
+              },
+              "&:focus": {
+                outline: "solid 2px #0089b0",
               },
             }}
           >

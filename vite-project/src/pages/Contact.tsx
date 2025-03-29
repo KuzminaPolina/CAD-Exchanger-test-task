@@ -1,4 +1,4 @@
-import { Form } from "../components/Form";
+import { RHForm } from "../components/RHForm";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Link } from "react-router";
@@ -22,6 +22,9 @@ const NavbarLogo = styled(Link)`
   &:focus {
     color: #004085;
   }
+  &:focus {
+    outline: solid 2px #0089b0;
+  }
   &:active {
     color: #0089b0;
   }
@@ -41,7 +44,7 @@ const ContactPage = () => {
         >
           Contact Us
         </Typography>
-        <Form />
+        <RHForm />
         <NavbarLogo to="/">Back to main page</NavbarLogo>
       </PageWrapper>
       <Footer />

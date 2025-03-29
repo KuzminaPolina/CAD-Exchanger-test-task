@@ -14,6 +14,9 @@ const NavbarLink = styled(Link)`
   &:focus {
     color: #004085;
   }
+  &:focus {
+    outline: solid 2px #0089b0;
+  }
   &:active {
     color: #0089b0;
   }

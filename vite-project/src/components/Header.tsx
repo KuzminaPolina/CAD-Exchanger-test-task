@@ -18,6 +18,9 @@ const NavbarLink = styled(Link)`
   &:focus {
     color: #004085;
   }
+  &:focus {
+    outline: solid 2px #0089b0;
+  }
   &:active {
     color: #0089b0;
   }
@@ -41,10 +44,14 @@ export const Header = () => {
     <Box
       component="header"
       sx={{
+        position: "sticky",
+        top: "0",
+        zIndex: "10",
         width: "100%",
         minHeight: "96px",
         padding: { xs: "30px 15px", md: "30px 80px" },
         borderBottom: "solid 1px rgb(223, 223, 223)",
+        backgroundColor: "#242424",
       }}
     >
       <StyledNav>
@@ -54,10 +61,15 @@ export const Header = () => {
             sx={{
               fontSize: { sm: "22px", md: "24px" },
               color: "rgba(255, 255, 255, 0.87)",
+              "& a": {
+                "&:focus": {
+                  outline: "solid 2px #0089b0",
+                },
+              },
             }}
           >
             <NavbarLogo to="/">
-              The Boring <br />
+              The Fun <br />
               Company
             </NavbarLogo>
           </Typography>

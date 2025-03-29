@@ -28,7 +28,7 @@ const Hero = () => {
             fontSize: { xs: "3rem", md: "3rem", lg: "5rem" },
           }}
         >
-          Our Boring Product
+          Our Fun Product
         </Typography>
         <Typography variant="body1">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
@@ -49,6 +49,7 @@ const Hero = () => {
           url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           width={matches ? "530px" : "280px"}
           height="235px"
+          alt="Congratulations! You just officially got rickrolled by the test task!"
         />
       </Box>
     </Box>
