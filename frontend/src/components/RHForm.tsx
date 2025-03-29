@@ -79,13 +79,16 @@ export const RHForm = () => {
       message: `${message}`,
     };
 
-    const response = await fetch("http://localhost:3000/contacts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_REACT_APP_BACKEND_BASE_URL}/contacts`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const serverResponce = await response.json();
 
     if (response.ok) {
