@@ -27,53 +27,28 @@ const CssTextField = styled(TextField)({
 });
 
 export const RHForm = () => {
-  const [isDataSent, setIsDataSent] = useState(false);
+  //избавиться от стейта
   const [respose, setResponse] = useState("You message was sent");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [isNameValid, setIsNameValid] = useState(true);
-  const [isEmailValid, setIsEmailValid] = useState(true);
-  const [isMessageValid, setIsMessageValid] = useState(true);
-  const [disableSend, setDisableSend] = useState(false);
+
   const nameRegex = /^[a-zA-Zaа-яА-Я0-9 _.]{2,32}$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/;
 
-  const checkNameValidity = (value: string) => {
-    const nameCheck = nameRegex.test(value);
-    if (nameCheck) {
-      setIsNameValid(true);
-      setDisableSend(false);
-    } else {
-      setIsNameValid(false);
-      setDisableSend(true);
-    }
-  };
+  const isNameValid =
+    name.length > 0 && (!nameRegex.test(name) || name.length < 2);
 
-  const checkEmailValidity = (value: string) => {
-    const emailCheck = emailRegex.test(value);
-    if (emailCheck) {
-      setIsEmailValid(true);
-      setDisableSend(false);
-    } else {
-      setIsEmailValid(false);
-      setDisableSend(true);
-    }
-  };
+  const isEmailValid =
+    email.length > 0 && (!emailRegex.test(email) || email.length < 2);
 
-  const checkMessageValidity = (value: string) => {
-    if (value.length < 2 || value.length >= 500) {
-      setIsMessageValid(false);
-      setDisableSend(true);
-    } else {
-      setIsMessageValid(true);
-      setDisableSend(false);
-    }
-  };
+  const isMessageValid = message.length > 0 && message.length < 5;
+  let formData = {};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = {
+    formData = {
       name: `${name}`,
       email: `${email}`,
       message: `${message}`,
@@ -93,13 +68,12 @@ export const RHForm = () => {
 
     if (response.ok) {
       setResponse(serverResponce.message);
-      setIsDataSent(true);
     } else {
       setResponse(response.statusText);
     }
   };
 
-  if (!isDataSent) {
+  if (Object.keys(formData).length !== 0) {
     return (
       <Box
         sx={{
@@ -123,11 +97,10 @@ export const RHForm = () => {
             value={name}
             onChange={(e) => {
               setName(e.target.value);
-              checkNameValidity(e.target.value);
             }}
-            error={!isNameValid}
+            error={isNameValid}
             helperText={
-              isNameValid ? null : "Name must be minimum 2 characters"
+              isNameValid ? "Name must be minimum 2 characters" : null
             }
             required
           />
@@ -138,10 +111,9 @@ export const RHForm = () => {
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
-              checkEmailValidity(e.target.value);
             }}
-            error={!isEmailValid}
-            helperText={isEmailValid ? null : "Please enter valid e-mail"}
+            error={isEmailValid}
+            helperText={isEmailValid ? "Please enter valid e-mail" : null}
             required
           />
           <CssTextField
@@ -151,11 +123,10 @@ export const RHForm = () => {
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
-              checkMessageValidity(e.target.value);
             }}
-            error={!isMessageValid}
+            error={isMessageValid}
             helperText={
-              isMessageValid
+              !isMessageValid
                 ? null
                 : "Please write some more! We want to hear from you  :)"
             }
@@ -166,7 +137,7 @@ export const RHForm = () => {
           <Button
             type="submit"
             variant="contained"
-            disabled={disableSend}
+            disabled={isMessageValid && !isEmailValid && !isNameValid}
             sx={{
               "&.MuiButton-root": {
                 backgroundColor: "#016364",
