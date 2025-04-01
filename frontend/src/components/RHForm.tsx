@@ -27,7 +27,6 @@ const CssTextField = styled(TextField)({
 });
 
 export const RHForm = () => {
-  //избавиться от стейта
   const [respose, setResponse] = useState("You message was sent");
 
   const [name, setName] = useState("");
